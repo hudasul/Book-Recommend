@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <%- include('../partials/navbar') %>
     <h1>All Books</h1>
 
     <a href="/books/new">Add a book Recomindation</a>
@@ -14,7 +15,7 @@
     <% allBooks.forEach((book)=> {%>
      <h2><%= book.title%></h2>
      <p>Author: <%= book.author%></p>
-     <p>Rating: <%= book.rating%></p>
+     <p>Rating: <%= book.rating%>/5</p>
      <p>Genre: <%= book.genre%></p>
      <a href="/books/<%= book._id%>">View Details</a>
      <hr>

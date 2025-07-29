@@ -1,5 +1,6 @@
 const router = require("express").Router()
 const Book = require("../models/Book")
+const User = require("../models/User")
 
 // all books dsplayed , home page
 router.get("/",async (req,res)=>{
@@ -25,10 +26,12 @@ router.get("/new", (req,res)=>{
 })
 
 // create a new book
-router.post("/new", async (req,res)=>{
+router.post("/new" ,async (req,res)=>{
     try{
         const createdBook = await Book.create(req.body)
         res.redirect("/books")
+        
+        
 
 
     }catch(error){
@@ -36,7 +39,7 @@ router.post("/new", async (req,res)=>{
     }
 })
 
-
+// display book details
 router.get("/:id",async (req,res)=>{
     try{
        const foundBook = await Book.findById(req.params.id)
