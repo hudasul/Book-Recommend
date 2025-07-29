@@ -60,5 +60,15 @@ router.get("/:id/edit", async (req,res)=>{
     
 })
 
+router.put("/:id/edit", async (req,res)=>{
+    try{
+        const updatedBook = await Book.findByIdAndUpdate(req.params.id, req.body)
+        res.redirect(`/books/${req.params.id}`)
+    }catch(error){
+        console.log(error)
+    }
+    
+})
+
 
 module.exports = router

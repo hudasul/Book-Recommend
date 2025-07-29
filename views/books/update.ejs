@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Update book Recomindation</h1>
-    <form action="" method="post">
+    <form action="/books/<%= foundBook._id%>/edit?_method=put" method="post">
 
         <label for="title">Title:</label>
         <input type="text" name="title" id="title" value="<%= foundBook.title%>">
