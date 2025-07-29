@@ -16,5 +16,8 @@
     <p>Genre: <%= foundBook.genre%></p>
     <p>Reason for Recomindation: <br> <%= foundBook.reason%></p>
 
+    <form action="/books/<%= foundBook._id%>/edit" method="get">
+    <button type="submit">Update information</button>
+    </form>
   </body>
 </html>

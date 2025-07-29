@@ -50,7 +50,15 @@ router.get("/:id",async (req,res)=>{
     }
 })
 
-
+router.get("/:id/edit", async (req,res)=>{
+    try{
+        const foundBook = await Book.findById(req.params.id)
+        res.render("books/update.ejs", {foundBook: foundBook})
+    }catch(error){
+        console.log(error)
+    }
+    
+})
 
 
 module.exports = router

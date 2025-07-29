@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Update book Recomindation</h1>
+    <form action="" method="post">
+
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" value="<%= foundBook.title%>">
+        <br>
+        <br>
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author" value="<%= foundBook.author%>">
+        <br>
+        <br>
+        <label for="rating">Rating:</label>
+        <input type="number" name="rating" id="rating" value="<%= foundBook.rating%>">
+        <br>
+        <br>
+        <label for="price">Price:</label>
+        <input type="number" name="price" id="price" value="<%= foundBook.price%>">
+        <br>
+        <br>
+        <label for="year">Published Year:</label>
+        <input type="number" name="year" id="year" value="<%= foundBook.year%>">
+        <br>
+        <br>
+        <label for="genre">Genre:</label>
+        <input type="text" name="genre" id="genre" value="<%= foundBook.genre%>">
+        <br>
+        <br>
+        <label for="reason">Reason for Recomindation:</label>
+        <br>
+        <br>
+        <textarea name="reason" id="reason" ><%= foundBook.reason%></textarea>
+        <br>
+        <button type="submit">Update</button>
+
+    </form>
+</body>
+</html>
