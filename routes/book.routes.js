@@ -1,9 +1,19 @@
 const router = require("express").Router()
 const Book = require("../models/Book")
 
+router.get("/",async (req,res)=>{
+    try{
+        const allBooks = await Book.find()
+        res.render("books/all-Books.ejs",{allBooks:allBooks})
+
+
+    }catch(error){
+        console.log(error)
+    }
+})
 router.get("/new", (req,res)=>{
     try{
-        res.render("books/new.ejs")
+        res.redirect("/books")
 
 
     }catch(error){

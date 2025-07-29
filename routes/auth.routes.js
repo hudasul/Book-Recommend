@@ -89,8 +89,7 @@ router.post("/login", async (req, res) => {
             username: userInDatabase.username,
             _id: userInDatabase._id,
         };
-
-        res.render("books/all-Books.ejs");
+        res.redirect("/books");
     } catch (error) {
         console.error("Error during sign-in:", error);
         res.render("auth/sign-in", { error: "An unexpected error occurred." });
