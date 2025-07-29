@@ -1,6 +1,7 @@
 const router = require("express").Router()
 const Book = require("../models/Book")
 
+// all books dsplayed , home page
 router.get("/",async (req,res)=>{
     try{
         const allBooks = await Book.find()
@@ -11,8 +12,22 @@ router.get("/",async (req,res)=>{
         console.log(error)
     }
 })
+
+// form to add a book
 router.get("/new", (req,res)=>{
     try{
+        res.render("books/new.ejs")
+
+
+    }catch(error){
+        console.log(error)
+    }
+})
+
+// create a new book
+router.post("/new", async (req,res)=>{
+    try{
+        const createdBook = await Book.create(req.body)
         res.redirect("/books")
 
 
@@ -21,11 +36,11 @@ router.get("/new", (req,res)=>{
     }
 })
 
-router.post("/new", async (req,res)=>{
-    try{
-        const createdBook = await Book.create(req.body)
-        res.render("books/book-details.ejs",{createdBook: createdBook})
 
+router.get("/:id",async (req,res)=>{
+    try{
+       const foundBook = await Book.findById(req.params.id)
+       res.render("books/book-details.ejs", {foundBook: foundBook})
 
     }catch(error){
         console.log(error)
