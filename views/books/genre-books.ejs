@@ -8,15 +8,14 @@
 <body>
      <%- include('../partials/navbar') %>
     <a href="/books">All books</a>
-    
+
     <h1><%= genre%> Books</h1>
     <% books.forEach((book)=>{%>
     <h2><%= book.title%></h1>
     <p>Author: <%= book.author%></p>
     <p>Rating: <%= book.rating%>/5</p>
-    <p>Price: <%= book.price%></p>
-    <p>Puplishment year: <%= book.year%></p>
-    <p>Reason for Recomindation: <br> <%= book.reason%></p>
+    <p>Genre: <%= book.genre%></p>
+   <a href="/books/<%= book._id%>">View Details</a>
     <hr>
     <%})%>
 
