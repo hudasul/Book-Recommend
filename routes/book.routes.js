@@ -50,6 +50,7 @@ router.get("/:id",async (req,res)=>{
     }
 })
 
+// show epdate form
 router.get("/:id/edit", async (req,res)=>{
     try{
         const foundBook = await Book.findById(req.params.id)
@@ -60,6 +61,7 @@ router.get("/:id/edit", async (req,res)=>{
     
 })
 
+// update the book-rocommendation information
 router.put("/:id/edit", async (req,res)=>{
     try{
         const updatedBook = await Book.findByIdAndUpdate(req.params.id, req.body)
@@ -70,6 +72,7 @@ router.put("/:id/edit", async (req,res)=>{
     
 })
 
+// deletes a book recommendation
 router.delete("/:id/delete", async (req,res)=>{
     try{
         const deletedBook = await Book.findByIdAndDelete(req.params.id)
@@ -79,6 +82,22 @@ router.delete("/:id/delete", async (req,res)=>{
     }
     
 })
+
+router.get("/genre/:genreName",async (req,res)=>{
+    try{
+
+        const genre = req.params.genreName
+        const books = await Book.find({genre: genre})
+        res.render("books/genre-books.ejs", {genre, books})
+    }catch(error){
+        console.log(error)
+
+    }
+})
+
+   
+
+
 
 
 module.exports = router

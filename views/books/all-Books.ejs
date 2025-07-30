@@ -7,6 +7,14 @@
 </head>
 <body>
     <%- include('../partials/navbar') %>
+
+      <% const bookGenres = ["drama", "comedy", "action", "horror", "sci-fi", "western", "romance", "thriller"," fantasy", "apocalypse", "martial arts", "sports"]%>
+        <ul>
+            <%bookGenres.forEach((genre) => {%>
+            <li><a href="books/genre/<%= genre %>"><%= genre %></a></li>
+            <%})%>
+            </ul>
+
     <h1>All Books</h1>
 
     <a href="/books/new">Add a book Recomindation</a>
