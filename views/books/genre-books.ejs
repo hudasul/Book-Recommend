@@ -6,7 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1><%= genre%> Genre Books</h1>
+     <%- include('../partials/navbar') %>
+    <a href="/books">All books</a>
+    
+    <h1><%= genre%> Books</h1>
     <% books.forEach((book)=>{%>
     <h2><%= book.title%></h1>
     <p>Author: <%= book.author%></p>

@@ -8,8 +8,8 @@
 <body>
     <%- include('../partials/navbar') %>
 
-      <% const bookGenres = ["drama", "comedy", "action", "horror", "sci-fi", "western", "romance", "thriller"," fantasy", "apocalypse", "martial arts", "sports"]%>
-        <ul>
+       <% const bookGenres = ["Drama", "Comedy", "Action", "Horror", "Sci-fi", "Western", "Romance", "Thriller"," Fantasy", "Apocalypse", "Martial arts", "Sports"]%>
+       <ul>
             <%bookGenres.forEach((genre) => {%>
             <li><a href="books/genre/<%= genre %>"><%= genre %></a></li>
             <%})%>
@@ -27,7 +27,6 @@
      <p>Genre: <%= book.genre%></p>
      <a href="/books/<%= book._id%>">View Details</a>
      <hr>
-
     <%})%>
     
 </body>
