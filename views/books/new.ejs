@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Recomindation</title>
+    <link rel="stylesheet" href="/books-style/new.css">
 </head>
 <body>
     <%- include('../partials/navbar') %>
     <a href="/books">All books</a>
 
+    <div class="container">
     <h1>Add a book Recomindation</h1>
     <form action="/books/new" method="post">
 
@@ -48,8 +50,9 @@
         <br>
         <textarea name="reason" id="reason"></textarea>
         <br>
-        <button type="submit">Add</button>
+        <button class="add-btn" type="submit">Add</button>
 
     </form>
+    </div>
 </body>
 </html>
