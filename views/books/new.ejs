@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
+     <a href="/books">All books</a>
+     
     <h1>Add a book Recomindation</h1>
     <form action="/books/new" method="post">
 
@@ -29,8 +31,15 @@
         <input type="number" name="year" id="year">
         <br>
         <br>
+
         <label for="genre">Genre:</label>
-        <input type="text" name="genre" id="genre">
+        <% const bookGenres = ["drama", "comedy", "action", "horror", "sci-fi", "western", "romance", "thriller"," fantasy", "apocalypse", "martial arts", "sports"]%>
+        <select name="genre" id="genre">
+            <%bookGenres.forEach((genre) => {%>
+            <option value="<%= genre%>"><%= genre%></option>
+            <%}); %>
+        </select>
+
         <br>
         <br>
         <label for="reason">Reason for Recomindation:</label>

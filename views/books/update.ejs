@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+
+    <a href="/books">All books</a>
+    
     <h1>Update book Recomindation</h1>
     <form action="/books/<%= foundBook._id%>/edit?_method=put" method="post">
 
@@ -29,8 +32,15 @@
         <input type="number" name="year" id="year" value="<%= foundBook.year%>">
         <br>
         <br>
+
         <label for="genre">Genre:</label>
-        <input type="text" name="genre" id="genre" value="<%= foundBook.genre%>">
+        <% const bookGenres = ["drama", "comedy", "action", "horror", "sci-fi", "western", "romance", "thriller"," fantasy", "apocalypse", "martial arts", "sports"]%>
+        <select name="genre" id="genre">
+            <%bookGenres.forEach((genre) => {%>
+            <option value="<%= foundBook.genre%>"><%= foundBook.genre%></option>
+            <%}); %>
+        </select>
+
         <br>
         <br>
         <label for="reason">Reason for Recomindation:</label>
