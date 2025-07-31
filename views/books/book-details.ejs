@@ -4,19 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= foundBook.title%></title>
+    <link rel="stylesheet" href="/books-style/book-details.css">
   </head>
   <body>
-     <%- include('../partials/navbar') %>
+     <header>
+      <div class="navbar">
+    <%- include('../partials/navbar') %>
+    </div>
     <a href="/books">All books</a>
-
+    </header> 
+    <div class="container">
     <h1><%= foundBook.title%></h1>
-    <p>Author: <%= foundBook.author%></p>
-    <p>Rating: <%= foundBook.rating%>/5</p>
-    <p>Price: <%= foundBook.price%> BD</p>
-    <p>Puplishment year: <%= foundBook.year%></p>
-    <p>Genre: <%= foundBook.genre%></p>
-    <p>Reason for Recomindation: <br> <%= foundBook.reason%></p>
+    <p><strong>Author:</strong> <%= foundBook.author%></p>
+    <p> <strong>Rating:</strong>  <%= foundBook.rating%>/5</p>
+    <p><strong>Price:</strong> <%= foundBook.price%> BD</p>
+    <p><strong>Puplishment year:</strong> <%= foundBook.year%></p>
+    <p><strong>Genre:</strong> <%= foundBook.genre%></p>
+    <p class="reason"><strong>Reason for Recomindation:</strong><br> <%= foundBook.reason%></p>
 
+    <div class="buttons">
     <form action="/books/<%= foundBook._id%>/edit" method="get">
     <button type="submit">Update information</button>
     </form>
@@ -27,7 +33,9 @@
 
   <form action="/books/<%= foundBook._id %>/reading-list" method="post">
     <button>Add to Reading List</button>
+    </div>
   </form>
+  </div>
 
 
     
