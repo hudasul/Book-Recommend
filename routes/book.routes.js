@@ -28,7 +28,18 @@ router.get("/new", (req,res)=>{
 // create a new book
 router.post("/new" ,async (req,res)=>{
     try{
-        const createdBook = await Book.create(req.body)
+        
+        const createdBook = new Book({
+            title: req.body.title,
+            author: req.body.author,
+            rating: req.body.rating,
+            price:req.body.price,
+            year: req.body.year,
+            genre: req.body.genre,
+            reason: req.body.reason,
+            creator: req.session.user._id
+        })
+        await createdBook.save()
         res.redirect("/books")
         
         
