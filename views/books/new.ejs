@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="/books-style/new.css">
 </head>
 <body>
+    <header>
+    <div class="navbar">   
     <%- include('../partials/navbar') %>
-    <a href="/books">All books</a>
-
-    <div class="container">
+    </div> 
     <h1>Add a book Recomindation</h1>
+    <a href="/books" class="allbooks-page-link">All books</a>
+    </header>
+    <div class="container">
     <form action="/books/new" method="post">
 
         <label for="title">Title:</label>
@@ -36,6 +39,7 @@
         <br>
 
         <label for="genre">Genre:</label>
+        <br>
         <% const bookGenres = ["Drama", "Comedy", "Action", "Horror", "Sci-fi", "Western", "Romance", "Thriller"," Fantasy", "Apocalypse", "Martial arts", "Sports"]%>
         <select name="genre" id="genre">
             <%bookGenres.forEach((genre) => {%>

@@ -1,17 +1,45 @@
 body{
-    background-color: rgb(127, 222, 190);
+    background-image: url("/images/book.jpg");
+    color: white;
+    display: flex;
+
+    
     
 }
 
+h1{
+    text-align: center;
+    font-size: 80px;
+
+    margin-top: 190px;
+    margin-left: 250px;
+}
+
+a{
+    color: white;
+text-decoration: none;
+}
+
+.navbar{
+    font-size: 25px;
+}
+.allbooks-page-link{
+    margin-left: 440px;
+    font-size: 50px;
+    background-color: black;
+    padding: 10px 25px;
+    border-radius: 8px;
+    border:  5px white solid;
+}
+
 .container{
-    margin: 0 auto;
-    margin-top: 30px;
-    border: 2px black solid;
-    border-radius: 15px;
+    color: black;
+    margin-left: 200px;
     background-color: white;
-    width: 900px;
-    padding: 20px;
-    height: 100%;
+    border: 5px black solid;
+    padding: 50px;
+    height: 100%; 
+    
    
     
 }

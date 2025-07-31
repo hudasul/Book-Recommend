@@ -124,7 +124,7 @@ router.get('/reading-list', async (req, res) => {
   try {
     const userId = req.session.user?._id;
     const readingList = await User.findById(userId).populate('readingList');
-    res.render('/books/reading-list.ejs',{readingList});
+    res.render('books/reading-list.ejs',{readingList});
   } catch (err) {
     console.error(err);
   }
