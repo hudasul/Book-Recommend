@@ -24,5 +24,9 @@
     <form action="/books/<%= foundBook._id%>/delete/?_method=DELETE" method="post">
         <button type="submit">Delete Book</button>
     </form>
+
+    <form action="/books/<%= foundBook._id%>/read-list" method="post">
+      <button type="submit">Add to Reading list</button>
+    </form>
   </body>
 </html>

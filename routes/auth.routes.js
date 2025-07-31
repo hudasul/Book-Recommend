@@ -11,6 +11,7 @@ router.post("/sign-up", async (req, res) => {
     try {
         const { username, password } = req.body;
 
+        // req.session.user = {isGuest: false}
         // VALIDATION
         //  Check if all the necessary fields are there
         if (!username || !password) {
@@ -103,6 +104,8 @@ router.get("/logout", (req, res) => {
     res.redirect("/auth/login")
 })
 
-
+// router.get("/guest", (req,res)=>{
+//     req.session.user = {isGuest: true}
+// })
 
 module.exports = router

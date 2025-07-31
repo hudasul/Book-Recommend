@@ -58,7 +58,7 @@ router.get("/myBooks", async (req,res)=>{
       res.render("books/my-books.ejs", {userBooks})
 
     }catch(error){
-        console,log(error)
+        console.log(error)
     }
 })
 
@@ -119,10 +119,24 @@ router.get("/genre/:genreName",async (req,res)=>{
 })
 
 
-
+router.post("/:id/read-list", async (req,res)=>{
+    const userID = req.session.user._id
+    const toBeReadBook = Book.findById(req.params.id)
+    res.render("books/reading-list.ejs", {toBeReadBook, userID})
+})
 
    
+router.post("/", async (req,res)=>{
+    try{
+      const userID = req.session.user._id
+      const userBooks = await Book.find({creator: userID}) 
+       
+      res.render("books/my-books.ejs", {userBooks})
 
+    }catch(error){
+        console,log(error)
+    }
+})
 
 
 
