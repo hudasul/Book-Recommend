@@ -50,6 +50,18 @@ router.post("/new" ,async (req,res)=>{
     }
 })
 
+
+router.get("/myBooks", async (req,res)=>{
+    try{
+      const userID = req.session.user._id
+      const userBooks = await Book.find({creator: userID})  
+      res.render("books/my-books.ejs", {userBooks})
+
+    }catch(error){
+        console,log(error)
+    }
+})
+
 // display book details
 router.get("/:id",async (req,res)=>{
     try{
