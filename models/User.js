@@ -9,7 +9,12 @@ const userSchema = new mongoose.Schema({
     password:{
         type:String,
         required:[true, "password is required"]
-    }
+    },
+    readingList: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Book'
+}]
+
 })
 
 const User = mongoose.model("User",userSchema)

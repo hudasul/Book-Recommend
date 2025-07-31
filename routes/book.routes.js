@@ -2,11 +2,13 @@ const router = require("express").Router()
 const Book = require("../models/Book")
 const User = require("../models/User")
 
+
 // all books dsplayed , home page
 router.get("/",async (req,res)=>{
     try{
+        const userID = req.session.user._id
         const allBooks = await Book.find()
-        res.render("books/all-Books.ejs",{allBooks:allBooks})
+        res.render("books/all-Books.ejs",{allBooks, userID})
 
 
     }catch(error){
@@ -118,25 +120,39 @@ router.get("/genre/:genreName",async (req,res)=>{
     }
 })
 
+router.get('/reading-list', async (req, res) => {
+  try {
+    const userId = req.session.user?._id;
+    const readingList = await User.findById(userId).populate('readingList');
+    res.render('/books/reading-list.ejs',{readingList});
+  } catch (err) {
+    console.error(err);
+  }
+});
 
-router.post("/:id/read-list", async (req,res)=>{
-    const userID = req.session.user._id
-    const toBeReadBook = Book.findById(req.params.id)
-    res.render("books/reading-list.ejs", {toBeReadBook, userID})
-})
+router.post('/:id/reading-list', async (req, res) => {
+  try {
+    const userId = req.session.user?._id;
+    
+    const bookId = req.params.id;
+    const user = await User.findById(userId);
 
-   
-router.post("/", async (req,res)=>{
-    try{
-      const userID = req.session.user._id
-      const userBooks = await Book.find({creator: userID}) 
-       
-      res.render("books/my-books.ejs", {userBooks})
-
-    }catch(error){
-        console,log(error)
+    // Avoid duplicate entries
+    if (!user.readingList.includes(bookId)) {
+      user.readingList.push(bookId);
+      await user.save();
     }
+
+     res.redirect("/books")
+  } catch (err) {
+    console.error(err);
+  }
 })
+
+
+
+
+
 
 
 

@@ -7,8 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-   <a href="/books">All books</a>
-   <h1>Reading List</h1>
+    <a href="/books">All books</a>
+    <h1>Your Reading List</h1>
+    <% readingList.forEach((book) => { %>
+    <h2><%= book.title %></h2>
+    <p><%= book.author %></p>
+    <p><%= book.genre %></p>
+    <hr>
+<% }) %>
 
 </body>
 </html>
