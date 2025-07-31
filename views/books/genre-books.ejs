@@ -4,21 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/books-style/genre.css">
+ 
 </head>
 <body>
+    <header>
+    <div class="navbar">  
      <%- include('../partials/navbar') %>
+     </div>  
     <a href="/books">All books</a>
-
+    
     <h1><%= genre%> Books</h1>
+    </header>
+    
+    <div class="books-container">
     <% books.forEach((book)=>{%>
+    <div class="container">   
     <h2><%= book.title%></h1>
-    <p>Author: <%= book.author%></p>
-    <p>Rating: <%= book.rating%>/5</p>
-    <p>Genre: <%= book.genre%></p>
-   <a href="/books/<%= book._id%>">View Details</a>
-    <hr>
+    <p><strong>Author:</strong>  <%= book.author%></p>
+    <p><strong>Rating:</strong>  <%= book.rating%>/5</p>
+    <p><strong>Genre:</strong>  <%= book.genre%></p>
+     <a href="/books/<%= book._id%>" class="details-tag">View Details</a>
+    </div>
     <%})%>
-
+</div>
 
 </body>
 </html>

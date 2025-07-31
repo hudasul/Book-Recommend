@@ -1,0 +1,53 @@
+header{
+    background-image: url("/images/book.jpg");
+    color: white;
+    display: inline-flex;
+    width: 1500px;
+    height: 100px;
+    gap: 50px;
+    margin-top: -10px;
+    margin-left: -10px;
+    padding: 20px;
+
+}
+
+h1{
+    margin-top: 20px;
+    font-size:  70px;
+    margin-left: 200px;
+}
+
+.details-tag{
+    font-size: 15px;
+    color: black;
+    font-weight: bolder;
+    background-color: white;
+    border: 2px black solid;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.books-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
+}
+.container{
+    background-color: rgb(218, 189, 116);
+    margin-top: 20px;
+    width: 300px;
+    padding: 15px 15px;
+    border-radius: 10px;
+    border: 2px black solid;
+
+}
+.navbar{
+    font-size: 25px;
+}
+
+a{
+color: white;
+text-decoration: none;
+font-size: 25px;
+}
