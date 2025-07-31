@@ -4,37 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/books-style/update.css">
 </head>
 <body>
 
+    <div class="header">
+    <div class="navbar">
     <%- include('../partials/navbar') %>
-    <a href="/books">All books</a>
-
+    </div>
     <h1>Update book Recomindation</h1>
+    <a href="/books" class="allbooks-page-link">All books</a>
+    </div>
+    <div class="container">
     <form action="/books/<%= foundBook._id%>/edit?_method=put" method="post">
 
-        <label for="title">Title:</label>
+        <label for="title">Title:</label><br>
         <input type="text" name="title" id="title" value="<%= foundBook.title%>">
         <br>
         <br>
-        <label for="author">Author:</label>
+        <label for="author">Author:</label><br>
         <input type="text" name="author" id="author" value="<%= foundBook.author%>">
         <br>
         <br>
-        <label for="rating">Rating:</label>
+        <label for="rating">Rating:</label><br>
         <input type="number" name="rating" id="rating" step="0.1" value="<%= foundBook.rating%>">
         <br>
         <br>
-        <label for="price">Price:</label>
+        <label for="price">Price:</label><br>
         <input type="number" name="price" id="price" step="0.1" value="<%= foundBook.price%>">
         <br>
         <br>
-        <label for="year">Published Year:</label>
+        <label for="year">Published Year:</label><br>
         <input type="number" name="year" id="year" value="<%= foundBook.year%>">
         <br>
         <br>
 
-        <label for="genre">Genre:</label>
+        <label for="genre">Genre:</label><br>
          <% const bookGenres = ["Drama", "Comedy", "Action", "Horror", "Sci-fi", "Western", "Romance", "Thriller"," Fantasy", "Apocalypse", "Martial arts", "Sports"]%>
         <select name="genre" id="genre">
             <%bookGenres.forEach((genre) => {%>
@@ -49,8 +54,9 @@
         <br>
         <textarea name="reason" id="reason" ><%= foundBook.reason%></textarea>
         <br>
-        <button type="submit">Update</button>
+        <button type="submit" class="update-btn">Update</button>
 
     </form>
+    </div>
 </body>
 </html>
