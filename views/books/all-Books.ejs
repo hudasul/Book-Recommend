@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>All Books</title>
 </head>
 <body>
     <%- include('../partials/navbar') %>
@@ -20,7 +20,6 @@
     <a href="/books/new">Add a book Recomindation</a>
     <a href="/books/myBooks">My Books</a>
     <a href="/books/reading-list">My Reading List</a>
-   
 
     <% allBooks.forEach((book)=> {%>
      <h2><%= book.title%></h2>

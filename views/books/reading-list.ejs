@@ -1,20 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <a href="/books">All books</a>
-    <h1>Your Reading List</h1>
-    <% readingList.forEach((book) => { %>
-    <h2><%= book.title %></h2>
-    <p><%= book.author %></p>
-    <p><%= book.genre %></p>
-    <hr>
-    <% }) %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reading List</title>
+  </head>
+  <body>
+    <header>
+      <div class="navbar"><%- include('../partials/navbar') %></div>
+      <a href="/books">All books</a>
+    </header>
+    <h1>My Reading List</h1>
 
-</body>
+    <% if (readingList.length === 0) { %>
+    <p>No books added yet!</p>
+    <% } else { %> <% readingList.forEach(book => { %>
+    <h2><%= book.title %></h2>
+    <p>Author: <%= book.author %></p>
+    <p>Rating: <%= book.rating%>/5</p>
+    <p>Genre: <%= book.genre %></p>
+    <a href="/books/<%= book._id%>">View Details</a>
+    <hr />
+    <% }) %> <% } %>
+  </body>
 </html>
