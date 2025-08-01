@@ -73,7 +73,7 @@ router.post("/:id/reading-list", async (req, res) => {
       user.readingList.push(bookId);
       await user.save();
     }
-    res.redirect(`/books/${bookId}`);
+    res.redirect(`/books/reading-list`);
   } catch (error) {
     console.log(error);
   }

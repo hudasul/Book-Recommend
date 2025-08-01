@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Books</title>
-</head>
-<body>
+  </head>
+  <body>
     <a href="/books">All books</a>
     <h1>My books</h1>
     <% userBooks.forEach((book)=>{%>
-        <h2><%= book.title%></h2>
-        <p>Rating: <%= book.rating%>/5</p>
-        <p>Genre: <%= book.genre%></p>
-        <a href="/books/<%= book._id%>">View Details</a>
-        <hr>
+    <h2><%= book.title%></h2>
+    <p>Rating: <%= book.rating%>/5</p>
+    <p>Genre: <%= book.genre%></p>
+    <a href="/books/<%= book._id%>">View Details</a>
+    <br>
+    <br>
+    <form action="/books/<%= book._id%>/edit" method="get">
+      <button type="submit">Update information</button>
+    </form>
+
+    <form
+      action="/books/<%= book._id%>/delete/?_method=DELETE"
+      method="post"
+    >
+      <button type="submit">Delete Book</button>
+    </form>
+
+    <hr />
     <%})%>
-</body>
+  </body>
 </html>

@@ -22,15 +22,8 @@
     <p><strong>Genre:</strong> <%= foundBook.genre%></p>
     <p class="reason"><strong>Reason for Recomindation:</strong><br> <%= foundBook.reason%></p>
 
-    <div class="buttons">
-    <form action="/books/<%= foundBook._id%>/edit" method="get">
-    <button type="submit">Update information</button>
-    </form>
-
-    <form action="/books/<%= foundBook._id%>/delete/?_method=DELETE" method="post">
-        <button type="submit">Delete Book</button>
-    </form>
-
+  <div class="buttons">
+  
   <form action="/books/<%= foundBook._id %>/reading-list" method="POST">
   <button type="submit">Add to Reading List</button>
   </form>
