@@ -80,6 +80,21 @@ router.post("/:id/reading-list",isSignedIn, async (req, res) => {
   }
 });
 
+router.delete("/:id/reading-list", isSignedIn, async (req, res) => {
+  try {
+    const userId = req.session.user._id;
+    const bookId = req.params.id;
+
+    const user = await User.findById(userId);
+    user.readingList = user.readingList.filter(id => id.toString() !== bookId);
+    await user.save();
+
+    res.redirect("/books/reading-list");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 // show Book details
 router.get("/:id", async (req, res) => {
   try {

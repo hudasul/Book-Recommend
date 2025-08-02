@@ -20,6 +20,11 @@
     <p>Rating: <%= book.rating%>/5</p>
     <p>Genre: <%= book.genre %></p>
     <a href="/books/<%= book._id%>">View Details</a>
+ 
+  <form action="/books/<%= book._id %>/reading-list?_method=DELETE" method="POST">
+  <button type="submit">Remove from Reading List</button>
+  </form>
+
     <hr />
     <% }) %> <% } %>
   </body>
