@@ -6,7 +6,9 @@
     <title>All Books</title>
 </head>
 <body>
+   
     <%- include('../partials/navbar') %>
+   
 
        <% const bookGenres = ["Drama", "Comedy", "Action", "Horror", "Sci-fi", "Western", "Romance", "Thriller"," Fantasy", "Apocalypse", "Martial arts", "Sports"]%>
        <ul>
@@ -15,7 +17,7 @@
             <%})%>
             </ul>
 
-            
+
     <h1>All Books</h1>
 
    <% if (user && !user.isGuest) { %>
