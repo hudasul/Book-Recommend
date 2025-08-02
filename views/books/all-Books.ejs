@@ -15,12 +15,16 @@
             <%})%>
             </ul>
 
+            
     <h1>All Books</h1>
 
-    <a href="/books/new">Add a book Recomindation</a>
-    <a href="/books/myBooks">My Books</a>
-    <a href="/books/reading-list">My Reading List</a>
+   <% if (user && !user.isGuest) { %>
+  <a href="/books/new">Add a Book Recommendation</a>
+  <a href="/books/myBooks">My Books</a>
+  <a href="/books/reading-list">My Reading List</a>
+  <% } %>
 
+   
     <% allBooks.forEach((book)=> {%>
      <h2><%= book.title%></h2>
      <p>Author: <%= book.author%></p>

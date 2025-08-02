@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Book = require("../models/Book");
 const User = require("../models/User");
+const isSignedIn = require("../middleware/isSignedIn")
 
 // All books
 router.get("/", async (req, res) => {
@@ -13,7 +14,7 @@ router.get("/", async (req, res) => {
 });
 
 // show add book recommendation form
-router.get("/new", (req, res) => {
+router.get("/new",isSignedIn, (req, res) => {
   try {
     res.render("books/new.ejs");
   } catch (error) {
@@ -22,7 +23,7 @@ router.get("/new", (req, res) => {
 });
 
 // Create new book recommindation
-router.post("/new", async (req, res) => {
+router.post("/new",isSignedIn, async (req, res) => {
   try {
     const createdBook = new Book({
       title: req.body.title,
@@ -42,7 +43,7 @@ router.post("/new", async (req, res) => {
 });
 
 // show user own added books
-router.get("/myBooks", async (req, res) => {
+router.get("/myBooks",isSignedIn, async (req, res) => {
   try {
     const userID = req.session.user._id;
     const userBooks = await Book.find({ creator: userID });
@@ -53,7 +54,7 @@ router.get("/myBooks", async (req, res) => {
 });
 
 // display Reading List
-router.get("/reading-list", async (req, res) => {
+router.get("/reading-list",isSignedIn, async (req, res) => {
   try {
     const userId = req.session.user._id;
     const user = await User.findById(userId).populate("readingList");
@@ -64,7 +65,7 @@ router.get("/reading-list", async (req, res) => {
 });
 
 // Add  books to Reading List
-router.post("/:id/reading-list", async (req, res) => {
+router.post("/:id/reading-list",isSignedIn, async (req, res) => {
   try {
     const userId = req.session.user._id;
     const bookId = req.params.id;
@@ -90,7 +91,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // show Update form
-router.get("/:id/edit", async (req, res) => {
+router.get("/:id/edit",isSignedIn, async (req, res) => {
   try {
     const foundBook = await Book.findById(req.params.id);
     res.render("books/update.ejs", { foundBook });
@@ -100,7 +101,7 @@ router.get("/:id/edit", async (req, res) => {
 });
 
 // Update book info
-router.put("/:id/edit", async (req, res) => {
+router.put("/:id/edit",isSignedIn, async (req, res) => {
   try {
     await Book.findByIdAndUpdate(req.params.id, req.body);
     res.redirect(`/books/${req.params.id}`);
@@ -110,7 +111,7 @@ router.put("/:id/edit", async (req, res) => {
 });
 
 // Delete book
-router.delete("/:id/delete", async (req, res) => {
+router.delete("/:id/delete",isSignedIn, async (req, res) => {
   try {
     await Book.findByIdAndDelete(req.params.id);
     res.redirect("/books");

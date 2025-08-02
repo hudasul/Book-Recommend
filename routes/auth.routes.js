@@ -1,5 +1,7 @@
 const router = require("express").Router()
 const User = require("../models/User")
+const Book = require("../models/Book");
+const passUserToView = require("../middleware/passUserToView")
 const bcrypt = require("bcrypt")
 
 
@@ -90,6 +92,8 @@ router.post("/login", async (req, res) => {
             username: userInDatabase.username,
             _id: userInDatabase._id,
         };
+
+        
         res.redirect("/books");
     } catch (error) {
         console.error("Error during sign-in:", error);
@@ -104,8 +108,14 @@ router.get("/logout", (req, res) => {
     res.redirect("/auth/login")
 })
 
-// router.get("/guest", (req,res)=>{
-//     req.session.user = {isGuest: true}
-// })
+router.get("/guest", async (req, res) => {
+  try {
+    req.session.user = { isGuest: true };
+    res.redirect("/books");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 
 module.exports = router
