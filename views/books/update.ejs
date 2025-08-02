@@ -39,13 +39,14 @@
         <br>
         <br>
 
-        <label for="genre">Genre:</label><br>
-         <% const bookGenres = ["Drama", "Comedy", "Action", "Horror", "Sci-fi", "Western", "Romance", "Thriller"," Fantasy", "Apocalypse", "Martial arts", "Sports"]%>
-        <select name="genre" id="genre">
-            <%bookGenres.forEach((genre) => {%>
-            <option value="<%= foundBook.genre%>"><%= genre%></option>
-            <%}); %>
-        </select>
+       <label for="genre">Genre:</label><br>
+       <% const bookGenres = ["Drama", "Comedy", "Action", "Horror", "Sci-fi", "Western", "Romance", "Thriller", "Fantasy", "Apocalypse", "Martial arts", "Sports"]; %>
+       <select name="genre" id="genre">
+       <% bookGenres.forEach((genre) => { %>
+       <option value="<%= genre %>" <%= genre === foundBook.genre ? 'selected' : '' %>><%= genre %></option>
+       <% }); %>
+       </select>
+
 
         <br>
         <br>
