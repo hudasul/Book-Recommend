@@ -4,44 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Books</title>
-    <link rel="stylesheet" href="/books-style/mybooks.css">
+    <link rel="stylesheet" href="/books-style/mybooks.css" />
   </head>
   <body>
-
     <header>
       <nav>
-    <%- include('../partials/navbar') %>
-    
-    <a href="/books" class="all-books-link">All books</a>
-    </nav> 
-    <h1>My books</h1>
-   
-   </header>
-   <div class="container">
-    <% userBooks.forEach((book)=>{%>
+        <%- include('../partials/navbar') %>
+
+        <a href="/books" class="all-books-link">All books</a>
+      </nav>
+      <h1>My books</h1>
+    </header>
+    <div class="container">
+      <% userBooks.forEach((book)=>{%>
       <div class="book">
-    <h2><%= book.title%></h2>
-    <p>Rating: <%= book.rating%>/5</p>
-    <p>Genre: <%= book.genre%></p>
-    <a href="/books/<%= book._id%>">View Details</a>
-    <br>
-    <br>
+        <h2><%= book.title%></h2>
+        <p><strong>Rating:</strong> <%= book.rating%>/5</p>
+        <p><strong>Genre:</strong> <%= book.genre%></p>
+        <a href="/books/<%= book._id%>">View Details</a>
+        <br />
+        <br />
 
-    <div class="buttons">
-    <form action="/books/<%= book._id%>/edit" method="get">
-      <button type="submit">Update information</button>
-    </form>
+        <div class="buttons">
+          <form action="/books/<%= book._id%>/edit" method="get">
+            <button type="submit">Update information</button>
+          </form>
 
-    <form
-      action="/books/<%= book._id%>/delete/?_method=DELETE"
-      method="post"
-    >
-      <button type="submit">Delete Book</button>
-    </form>
-    </div>
-    </div>
-  
-    <%})%>
+          <form
+            action="/books/<%= book._id%>/delete/?_method=DELETE"
+            method="post"
+          >
+            <button type="submit">Delete Book</button>
+          </form>
+        </div>
+      </div>
+
+      <%})%>
     </div>
   </body>
 </html>

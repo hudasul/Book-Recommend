@@ -13,6 +13,7 @@
     </div>
     <a href="/books">All books</a>
     </header> 
+
     <div class="container">
     <h1><%= foundBook.title%></h1>
     <p><strong>Author:</strong> <%= foundBook.author%></p>
@@ -20,13 +21,17 @@
     <p><strong>Price:</strong> <%= foundBook.price%> BD</p>
     <p><strong>Puplishment year:</strong> <%= foundBook.year%></p>
     <p><strong>Genre:</strong> <%= foundBook.genre%></p>
+
     <p class="reason"><strong>Reason for Recomindation:</strong><br> <%= foundBook.reason%></p>
 
   <div class="buttons">
   
+    <% if (user && !user.isGuest) { %>
   <form action="/books/<%= foundBook._id %>/reading-list" method="POST">
   <button type="submit">Add to Reading List</button>
   </form>
+  <%}%>
+  </div>
   </div>
 
 

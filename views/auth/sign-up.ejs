@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="/signup.css">
 </head>
 <body>
@@ -26,14 +26,15 @@
         <button class="signup-btn">Sign Up</button>
     </form>
     <br>
-    <%- include('../partials/navbar') %>
+    <a href="/auth/login">Login</a>
     <a href="/auth/guest">Continue as Guest</a>
     
+     <% if (error) { %>
+    <p style="color:red" class="error"><%= error %></p>
+    <% } %>
     </div>
     
-    <% if (error) { %>
-  <p style="color:red" class="error"><%= error %></p>
-<% } %>
+   
 
 </body>
 </html>
