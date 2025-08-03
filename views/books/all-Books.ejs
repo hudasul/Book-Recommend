@@ -21,8 +21,18 @@
   <a href="/books/new">Add a Book Recommendation</a>
   <a href="/books/myBooks">My Books</a>
   <a href="/books/reading-list">My Reading List</a>
-  <% } %>
   </div>
+  <% }else{ %>
+       <style>
+       header{
+        height: 356px;
+       }
+       .genres{
+       width: 1524px;
+       }
+       </style>
+  <%}%>
+  
   
     
     <% const bookGenres = ["Drama", "Comedy", "Action", "Horror", "Sci-fi", "Western", "Romance", "Thriller"," Fantasy", "Apocalypse", "Martial arts", "Sports"]%>
