@@ -1,7 +1,5 @@
 const router = require("express").Router()
 const User = require("../models/User")
-const Book = require("../models/Book");
-const passUserToView = require("../middleware/passUserToView")
 const bcrypt = require("bcrypt")
 
 
@@ -12,8 +10,6 @@ router.get("/sign-up", (req, res) => {
 router.post("/sign-up", async (req, res) => {
     try {
         const { username, password } = req.body;
-
-        // req.session.user = {isGuest: false}
         // VALIDATION
         //  Check if all the necessary fields are there
         if (!username || !password) {
@@ -21,14 +17,7 @@ router.post("/sign-up", async (req, res) => {
                 error: "All fields are required."
             });
         }
-
-        // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        // if (!emailRegex.test(email)) {
-        //     return res.render("auth/sign-up", {
-        //         error: "Please enter a valid email address."
-        //     });
-        // }
-
+        
         if (password.length < 6) {
             return res.render("auth/sign-up", {
                 error: "Password must be at least 6 characters long."

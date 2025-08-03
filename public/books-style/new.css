@@ -1,10 +1,7 @@
 body{
     background-image: url("/images/book.jpg");
     color: white;
-    display: flex;
-
-    
-    
+    display: flex;  
 }
 
 h1{

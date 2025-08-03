@@ -2,7 +2,7 @@ header{
     background-image: url("/images/book.jpg");
     color: white;
     display: inline-flex;
-    width: 1500px;
+    width: 100vw;
     height: 100px;
     gap: 50px;
     margin-top: -10px;
