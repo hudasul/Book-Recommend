@@ -47,7 +47,6 @@ router.post("/sign-up", async (req, res) => {
         res.redirect("/auth/login");
 
     } catch (error) {
-        console.error("Sign-up error:", error);
         res.render("auth/sign-up", {
             error: "Something went wrong. Please try again."
         });
@@ -85,7 +84,6 @@ router.post("/login", async (req, res) => {
         
         res.redirect("/books");
     } catch (error) {
-        console.error("Error during sign-in:", error);
         res.render("auth/sign-in", { error: "An unexpected error occurred." });
     }
 });
