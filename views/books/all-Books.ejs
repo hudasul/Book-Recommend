@@ -4,37 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Books</title>
+    <link rel="stylesheet" href="/books-style/all-books.css">
 </head>
 <body>
    
+    <header> 
+    <nav>
     <%- include('../partials/navbar') %>
-   
+    </nav> 
+  
+  
+  <h1>All Books</h1>
 
-       <% const bookGenres = ["Drama", "Comedy", "Action", "Horror", "Sci-fi", "Western", "Romance", "Thriller"," Fantasy", "Apocalypse", "Martial arts", "Sports"]%>
-       <ul>
-            <%bookGenres.forEach((genre) => {%>
-            <li><a href="books/genre/<%= genre %>"><%= genre %></a></li>
-            <%})%>
-            </ul>
-
-
-    <h1>All Books</h1>
-
+  <div class="services">
    <% if (user && !user.isGuest) { %>
   <a href="/books/new">Add a Book Recommendation</a>
   <a href="/books/myBooks">My Books</a>
   <a href="/books/reading-list">My Reading List</a>
   <% } %>
+  </div>
+  
+    
+    <% const bookGenres = ["Drama", "Comedy", "Action", "Horror", "Sci-fi", "Western", "Romance", "Thriller"," Fantasy", "Apocalypse", "Martial arts", "Sports"]%>
+          <div class="genres">
+          
+            <%bookGenres.forEach((genre) => {%>
+            <a href="books/genre/<%= genre %>"><%= genre %></a>
+            <%})%>
+        
+    </div>    
+    </header>
 
-   
+    <div class="books">
     <% allBooks.forEach((book)=> {%>
+     <div class="book">
      <h2><%= book.title%></h2>
      <p>Author: <%= book.author%></p>
      <p>Rating: <%= book.rating%>/5</p>
      <p>Genre: <%= book.genre%></p>
-     <a href="/books/<%= book._id%>">View Details</a>
-     <hr>
+     <a href="/books/<%= book._id%>" class="details">View Details</a>
+     </div>
     <%})%>
-    
+    </div>
 </body>
 </html>
