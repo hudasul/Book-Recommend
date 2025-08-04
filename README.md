@@ -2,7 +2,7 @@
 <img width="1898" height="863" alt="book-recommend" src="https://github.com/user-attachments/assets/fc98807f-5d79-4c86-842c-535210c8294e" />
 
 <h2>Book Recommend</h2>
-Book Recommend is an application that allow users to view recommendatins for diffrent genres of books, signed in users have the ability of adding, updating and deleting book recommendations. Also, they can create there own reading list. the application was made using the MEN stack ( MongoDB, Express.js, and Node.js.). yoy can check the application <a href="https://book-recommend-6ifx.onrender.com">here</a>
+Book Recommend is an application that allow users to view recommendatins for diffrent genres of books, signed in users have the ability of adding, updating and deleting book recommendations. Also, they can create there own reading list. the application was made using the MEN stack ( MongoDB, Express.js, and Node.js.). you can check the application <a href="https://book-recommend-6ifx.onrender.com">here</a>
 
 
 <h2>Attributions: </h2>
