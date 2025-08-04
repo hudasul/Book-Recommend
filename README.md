@@ -1,5 +1,5 @@
 <h1>Book Recommend Apllication</h1>
-<img width="1900" height="860" alt="book recommend" src="https://github.com/user-attachments/assets/a2c40bba-76f4-44ac-83e8-b91bb466a45a" />
+<img width="1898" height="863" alt="book-recommend" src="https://github.com/user-attachments/assets/fc98807f-5d79-4c86-842c-535210c8294e" />
 
 <h2>Book Recommend</h2>
 Book Recommend is an application that allow users to view recommendatins for diffrent genres of books, signed in users have the ability of adding, updating and deleting book recommendations. Also, they can create there own reading list. the application was made using the MEN stack ( MongoDB, Express.js, and Node.js.)
