@@ -7,7 +7,7 @@ const isSignedIn = require("../middleware/isSignedIn")
 router.get("/", async (req, res) => {
   try {
     const allBooks = await Book.find();
-    res.render("/books/all-books.ejs", { allBooks });
+    res.render("books/all-Books.ejs", { allBooks });
   } catch (error) {
     console.log(error);
   }
